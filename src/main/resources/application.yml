@@ -1,0 +1,31 @@
+server:
+  port: 9100 # 访问端口
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 1000
+    max-connections: 10000
+    max-http-post-size: 0
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/black?useUnicode=true&characterEncoding=utf-8&useSSL=false  # 本地测试
+    username: root
+    password: 123456
+
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 200ms
+    jedis:
+      pool:
+        max-idle: 8
+        max-active: 8
+        min-idle: 0
+        max-wait: -1ms
+
+mybatis-plus:
+  mapper-locations: classpath:com/mapper/*Mapper.xml
+  type-aliases-package: com.test.bean,com.test.*.bean  #别名
